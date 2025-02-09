@@ -1,0 +1,44 @@
+openapi: 3.1.0
+info:
+  title: AwesomeAPI
+  description: AwesomeAPI
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local server
+paths:
+    /pizzas:
+        get:
+          summary: List of pizzas
+          tags:
+            - Pizza
+          responses:
+              '200':
+                description: OK
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/PizzaList'
+
+components:
+  schemas:
+    PizzaList:
+        type: object
+        properties:
+            items:
+              type: array
+              items:
+                  $ref: '#/components/schemas/Pizza'
+    Pizza:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        price:
+          type: number
+        ingredients:
+          type: array
+          items:
+            type: string

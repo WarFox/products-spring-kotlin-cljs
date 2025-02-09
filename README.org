@@ -1,0 +1,8 @@
+#+title: Spring Kafka Kotlin
+
+This is an example project for Spring and Kafka using Kotlin
+
+* Swagger UI
+Swagger UI setup sing SpringDoc and is available at http://localhost:8080/swagger-ui/index.html
+
+# Copyright (C) 2025 by Deepu Mohan Puthrote
