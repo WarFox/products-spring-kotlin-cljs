@@ -1,44 +1,61 @@
 openapi: 3.1.0
 info:
-  title: AwesomeAPI
-  description: AwesomeAPI
+  title: Product API
+  description: Product API
   version: 1.0.0
 servers:
   - url: http://localhost:8080
     description: Local server
 paths:
-    /pizzas:
+    /products:
         get:
-          summary: List of pizzas
+          summary: List of products
           tags:
-            - Pizza
+            - Product
           responses:
               '200':
                 description: OK
                 content:
                   application/json:
                     schema:
-                      $ref: '#/components/schemas/PizzaList'
+                      $ref: '#/components/schemas/ProductList'
+    /products/{id}:
+        get:
+          summary: Get a product by id
+          tags:
+            - Product
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+          responses:
+              '200':
+                description: OK
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/ProductV1'
+              '404':
+                description: Not found
 
 components:
   schemas:
-    PizzaList:
-        type: object
-        properties:
-            items:
-              type: array
-              items:
-                  $ref: '#/components/schemas/Pizza'
-    Pizza:
+    ProductList:
+        type: array
+        items:
+            $ref: '#/components/schemas/ProductV1'
+    ProductV1:
       type: object
       properties:
         id:
-          type: integer
+          type: string
+          format: uuid
         name:
           type: string
+        description:
+           type: string
         price:
           type: number
-        ingredients:
-          type: array
-          items:
-            type: string
+          format: double
