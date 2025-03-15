@@ -10,6 +10,7 @@ paths:
     /products:
         get:
           summary: List of products
+          operationId: listProducts
           tags:
             - Product
           responses:
@@ -22,6 +23,7 @@ paths:
     /products/{id}:
         get:
           summary: Get a product by id
+          operationId: getProduct
           tags:
             - Product
           parameters:
@@ -56,6 +58,12 @@ components:
           type: string
         description:
            type: string
-        price:
+        priceInCents:
           type: number
-          format: double
+          format: long
+        createdAt:
+          type: string
+          format: data-time
+        updatedAt:
+          type: String
+          format: date-time

@@ -23,3 +23,15 @@ class TestcontainersConfiguration {
     }
 
 }
+
+val postgresTestContainer: PostgreSQLContainer<*> by lazy {
+    TestcontainersConfiguration().postgresContainer().apply {
+        withDatabaseName("test")
+        withUsername("product")
+        withPassword("product")
+    }.also { it.start() }
+}
+
+val kafkaTestContainer: KafkaContainer by lazy {
+    TestcontainersConfiguration().kafkaContainer().also { it.start() }
+}
