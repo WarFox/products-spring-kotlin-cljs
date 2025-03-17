@@ -18,6 +18,6 @@ fun Product.toProductV1() = ProductV1(
     name = name,
     description = description,
     priceInCents = priceInCents,
-    createdAt = createdAt,
-    updatedAt = updatedAt
+    createdAt = createdAt.toString(),
+    updatedAt = updatedAt.toString()
 )

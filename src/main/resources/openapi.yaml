@@ -59,11 +59,11 @@ components:
         description:
            type: string
         priceInCents:
-          type: number
-          format: long
+          type: integer
+          format: int64
         createdAt:
           type: string
-          format: data-time
+#          format: data-time
         updatedAt:
-          type: String
-          format: date-time
+          type: string
+#          format: date-time
