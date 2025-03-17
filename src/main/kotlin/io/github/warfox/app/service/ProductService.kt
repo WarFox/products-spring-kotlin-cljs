@@ -9,6 +9,7 @@ import java.util.UUID
 interface ProductService {
     fun getProduct(productId: UUID): Product?
     fun listProducts(): List<Product>?
+    fun createProduct(product: Product) : Product?
 }
 
 @Service
@@ -20,5 +21,13 @@ class DefaultProductService(val repository: ProductRepository) : ProductService 
 
     override fun listProducts(): List<Product>? {
         return repository.listProducts()
+    }
+
+    @Transactional(readOnly = false)
+    override fun createProduct(product: Product): Product? {
+        return when(repository.createOrUpdate(product)) {
+            1 -> product
+            else -> null
+        }
     }
 }

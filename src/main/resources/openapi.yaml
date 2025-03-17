@@ -20,6 +20,27 @@ paths:
                   application/json:
                     schema:
                       $ref: '#/components/schemas/ProductList'
+        post:
+          summary: Create Product
+          operationId: createProduct
+          tags:
+            - Product
+          requestBody:
+            description: Optional description in *Markdown*
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/ProductV1Request"
+          responses:
+            201:
+              description: OK
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/ProductV1"
+            500:
+              description: Failed to create
     /products/{id}:
         get:
           summary: Get a product by id
@@ -51,6 +72,13 @@ components:
             $ref: '#/components/schemas/ProductV1'
     ProductV1:
       type: object
+      required:
+        - id
+        - name
+        - description
+        - priceInCents
+        - createdAt
+        - updatedAt
       properties:
         id:
           type: string
@@ -64,7 +92,21 @@ components:
           format: int64
         createdAt:
           type: string
-#          format: data-time
         updatedAt:
           type: string
-#          format: date-time
+    ProductV1Request:
+      type: object
+      required:
+        - name
+        - priceInCents
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        priceInCents:
+          type: integer
+          format: int64
