@@ -5,4 +5,7 @@ This is an example project for Spring and Kafka using Kotlin
 * Swagger UI
 Swagger UI setup sing SpringDoc and is available at http://localhost:8080/swagger-ui/index.html
 
+* References
+- https://testcontainers.com/guides/testing-spring-boot-kafka-listener-using-testcontainers/#_getting_started
+
 # Copyright (C) 2025 by Deepu Mohan Puthrote
