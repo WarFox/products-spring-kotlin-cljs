@@ -1,6 +1,12 @@
-#+title: Spring Kafka Kotlin
+#+title: Products App
 
-This is an example project for Spring and Kafka using Kotlin
+Fullstack App with Spring Kotlin backend and Clojurescirpt frontend
+
+It has a simple form where you can add products and it shows the list of products
+
+#+BEGIN_HTML
+<img src="https://gist.githubusercontent.com/WarFox/91fff34911d1080a66723770cb12c4e7/raw/ec78e55cb4f834fd3e4ea1c57f0ee521f9120384/products-app.png" />
+#+END_HTML
 
 * Run the project for
 
