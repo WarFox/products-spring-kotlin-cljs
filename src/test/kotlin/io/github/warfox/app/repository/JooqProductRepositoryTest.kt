@@ -19,4 +19,13 @@ class JooqProductRegistryTest(private val productRegistry: JooqProductRepository
         }
     }
 
+    @Test
+    fun `delete product`() {
+        Arb.productArb().next().let { product ->
+            productRegistry.createOrUpdate(product) shouldBe 1
+            productRegistry.deleteProduct(product.id) shouldBe 1
+            productRegistry.getProduct(product.id) shouldBe null
+        }
+    }
+
 }

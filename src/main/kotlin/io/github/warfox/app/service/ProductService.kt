@@ -10,6 +10,7 @@ interface ProductService {
     fun getProduct(productId: UUID): Product?
     fun listProducts(): List<Product>?
     fun createProduct(product: Product) : Product?
+    fun deleteProduct(productId: UUID): Unit?
 }
 
 @Service
@@ -27,6 +28,14 @@ class DefaultProductService(val repository: ProductRepository) : ProductService 
     override fun createProduct(product: Product): Product? {
         return when(repository.createOrUpdate(product)) {
             1 -> product
+            else -> null
+        }
+    }
+
+    @Transactional(readOnly = false)
+    override fun deleteProduct(productId: UUID): Unit? {
+        return when(repository.deleteProduct(productId)) {
+            1 -> Unit
             else -> null
         }
     }

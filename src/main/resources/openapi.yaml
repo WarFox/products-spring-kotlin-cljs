@@ -63,6 +63,23 @@ paths:
                       $ref: '#/components/schemas/ProductV1'
               '404':
                 description: Not found
+        delete:
+          summary: Delete a product by id
+          operationId: deleteProduct
+          tags:
+            - Product
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: string
+                format: uuid
+          responses:
+              '200':
+                description: OK
+              '404':
+                description: Not found
 
 components:
   schemas:

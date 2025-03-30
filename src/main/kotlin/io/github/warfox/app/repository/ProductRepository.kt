@@ -7,4 +7,5 @@ interface ProductRepository {
     fun getProduct(productId: UUID): Product?
     fun listProducts(): List<Product>?
     fun createOrUpdate(product: Product): Int
+    fun deleteProduct(productId: UUID): Int
 }

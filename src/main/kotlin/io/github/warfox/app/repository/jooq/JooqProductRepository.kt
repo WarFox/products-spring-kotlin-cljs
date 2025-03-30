@@ -37,8 +37,15 @@ class JooqProductRepository(val dslContext: DSLContext): ProductRepository {
                 .onDuplicateKeyUpdate()
                 .set(this.UPDATED_AT, product.updatedAt)
                 .execute()
-        }
     }
+
+    override fun deleteProduct(productId: UUID): Int =
+        with(Tables.PRODUCTS) {
+            dslContext.deleteFrom(this)
+                .where(this.PRODUCT_ID.eq(productId))
+                .execute()
+    }
+}
 
 fun ProductsRecord.toDomain(): Product {
     return Product(

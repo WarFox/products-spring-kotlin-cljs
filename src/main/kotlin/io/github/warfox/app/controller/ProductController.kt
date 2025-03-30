@@ -36,4 +36,13 @@ class ProductController(val service: ProductService) : ProductControllerApi {
             }
         }
     }
+
+    override fun deleteProduct(id: UUID): ResponseEntity<Unit> {
+        return service.deleteProduct(id).let {
+            when(it) {
+                null -> ResponseEntity.notFound().build()
+                else -> ResponseEntity.noContent().build()
+            }
+        }
+    }
 }
