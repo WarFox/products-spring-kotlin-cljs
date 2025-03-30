@@ -47,7 +47,7 @@
         products (re-frame/subscribe [::subs/products])]
     [:div {:class "container mx-auto px-4 py-8"}
      [new-product-form @product]
-     [:div 
+     [:div
       [:h2  "Products"]
       [:div
        [:button {:on-click #(re-frame/dispatch [::events/load-products])}
