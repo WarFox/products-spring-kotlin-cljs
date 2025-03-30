@@ -8,10 +8,12 @@ import io.github.warfox.app.model.ProductV1Request
 import io.github.warfox.app.service.ProductService
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.CrossOrigin
 import java.net.URI
 import java.util.UUID
 
 @Controller
+@CrossOrigin(origins = arrayOf("http://localhost:8280"))
 class ProductController(val service: ProductService) : ProductControllerApi {
     override fun listProducts(): ResponseEntity<List<ProductV1>> {
         return service.listProducts().let {
