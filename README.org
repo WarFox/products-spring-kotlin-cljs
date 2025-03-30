@@ -7,8 +7,10 @@ This is an example project for Spring and Kafka using Kotlin
 1. Start the backend
 
 #+begin_src shell
- ./gradlew bootTestRun
+  ./gradlew bootTestRun
 #+end_src
+
+This starts the backend at http://localhost:8080/
 
 2. Start the UI
 
@@ -17,8 +19,17 @@ This is an example project for Spring and Kafka using Kotlin
   npm run watch
 #+end_src
 
+This starts the frontend at http://localhost:8280/ in watch mode for development
+
+3. Start tailwind process
+
+#+begin_src shell
+  cd ui
+  npm run watch:css
+#+end_src
+
 * UI
-UI is built using [re-frame](https://day8.github.io/re-frame/) and [ClojureScript](https://clojurescript.org/) in ./ui directory
+UI is built using [[https://day8.github.io/re-frame/][re-frame]] and [[https://clojurescript.org/][ClojureScript]] in ./ui directory
 
 * Swagger UI
 Swagger UI setup sing SpringDoc and is available at http://localhost:8080/swagger-ui/index.html
