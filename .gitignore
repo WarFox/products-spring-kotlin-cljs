@@ -38,3 +38,8 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### emacs
+.clj-kondo/
+.lsp/.cache/
+kls_database.db
