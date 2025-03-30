@@ -2,6 +2,24 @@
 
 This is an example project for Spring and Kafka using Kotlin
 
+* Run the project for
+
+1. Start the backend
+
+#+begin_src shell
+ ./gradlew bootTestRun
+#+end_src
+
+2. Start the UI
+
+#+begin_src shell
+  cd ui
+  npm run watch
+#+end_src
+
+* UI
+UI is built using [re-frame](https://day8.github.io/re-frame/) and [ClojureScript](https://clojurescript.org/) in ./ui directory
+
 * Swagger UI
 Swagger UI setup sing SpringDoc and is available at http://localhost:8080/swagger-ui/index.html
 
